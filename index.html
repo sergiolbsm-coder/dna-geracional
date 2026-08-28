@@ -228,7 +228,9 @@ table.matriz tr:last-child td{border-bottom:none}
 
 <script>
 // ─── CONSTANTES ───────────────────────────────────────────────────────────────
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyUFi-n1PaKBH119A0XiWZ_wMgN7jRbN176F1VLEUD0JyODhVVGooVRcQQ1D0MFZkS4ng/exec';
+// ⚠ Substitua pela URL do seu deploy do APPS_SCRIPT.gs (Implantar → App da Web → copiar URL /exec)
+// Ver README.md → seção "Configurar o backend"
+const SHEETS_URL = 'COLE_AQUI_A_URL_DO_SEU_APPS_SCRIPT_EXEC';
 
 const GERACAO_INFO = {
   BOOMER: { nome:'Baby Boomer', cor:'var(--g-boomer)', desc:'Valorização de Estrutura e Respeito à Hierarquia' },
@@ -587,6 +589,10 @@ function calcularEMostrar() {
 
 // ─── SALVAR ───────────────────────────────────────────────────────────────────
 async function salvar() {
+  if (SHEETS_URL.indexOf('COLE_AQUI') !== -1) {
+    showToast('⚠ Backend ainda não configurado — veja o README.md');
+    return;
+  }
   const btn = document.getElementById('btn-salvar');
   btn.disabled = true;
   btn.textContent = 'Salvando...';

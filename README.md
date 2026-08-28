@@ -2,7 +2,7 @@
 
 Diagnóstico de inteligência comportamental aplicada — cruza a bagagem sociohistórica do indivíduo (geração dominante) com psicometria madura (Sabotadores, Âncoras de Carreira de Schein e Estilo de Liderança).
 
-Projeto irmão do [assessment-lideranca](https://github.com/sergiolbsm-coder/assessment-lideranca) (Instituto da Liderança), publicado à parte por ter ciclo de desenvolvimento próprio.
+Projeto irmão do [assessment-lideranca](https://github.com/sergiolbsm-coder/assessment-lideranca) (Instituto da Liderança), publicado à parte por ter ciclo de desenvolvimento e planilha próprios.
 
 ## Link
 
@@ -25,9 +25,23 @@ Projeto irmão do [assessment-lideranca](https://github.com/sergiolbsm-coder/ass
 
 ## Backend
 
-Este diagnóstico **usa o mesmo Google Apps Script / planilha** do [assessment-lideranca](https://github.com/sergiolbsm-coder/assessment-lideranca) — o `APPS_SCRIPT.gs` daquele repositório já inclui as colunas `gen_boomer`, `gen_x`, `gen_y`, `gen_z`, `gen_dominante`, `sabotador_dominante`, `ancora_schein`, `ancora_secundaria`, `estilo_lideranca` e `causa_proposito` na aba `Respostas`.
+Backend próprio e independente do `assessment-lideranca` — planilha Google Sheets dedicada + `APPS_SCRIPT.gs` (neste repositório) publicado como Web App.
 
-Não há backend próprio neste repositório — é uma página estática (`index.html`) que salva via `fetch` no mesmo endpoint compartilhado.
+- **Planilha**: https://docs.google.com/spreadsheets/d/14cXiQPBxMfG3f2HIVS-qgH7TpN99nMY8MMzi5Oo3r18/edit
+- **Aba `Respostas`**: `timestamp`, `nome`, `email`, `empresa`, `turma`, `fase`, `gen_boomer`, `gen_x`, `gen_y`, `gen_z`, `gen_dominante`, `sabotador_dominante`, `ancora_schein`, `ancora_secundaria`, `estilo_lideranca`, `causa_proposito`
+- **Aba `Turmas`**: fonte de verdade do dropdown "Turma" no cadastro
+
+### Configurar o backend (uma vez)
+
+1. Abra a planilha acima → **Extensões → Apps Script**.
+2. Apague o conteúdo padrão de `Code.gs` e cole o conteúdo de [`APPS_SCRIPT.gs`](APPS_SCRIPT.gs) deste repositório.
+3. Salve (ícone de disquete).
+4. **Implantar → Nova implantação → tipo "App da Web"**:
+   - Executar como: **Eu (sua conta)**
+   - Quem tem acesso: **Qualquer pessoa**
+5. Autorize as permissões pedidas pelo Google (é a sua própria conta autorizando o script).
+6. Copie a **URL do app da Web** (termina em `/exec`) e cole em `SHEETS_URL` no topo do `<script>` de [`index.html`](index.html).
+7. (Opcional) No editor do Apps Script, rode a função `testarInsercao()` uma vez para confirmar que a aba `Respostas` é criada com o cabeçalho correto.
 
 ## Deploy
 
