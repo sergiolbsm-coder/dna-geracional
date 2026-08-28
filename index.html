@@ -677,9 +677,13 @@ function exportarPDF(nome) {
     margin: [10, 10, 14, 10],
     filename: `dna-geracional-${slugify(nome)}.pdf`,
     image: { type: 'jpeg', quality: 0.95 },
-    html2canvas: { scale: 2, backgroundColor: '#FBF9FF', useCORS: true },
+    html2canvas: { scale: 1.5, backgroundColor: '#FBF9FF', useCORS: true },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+    // Só 'css': deixa o conteúdo fluir naturalmente entre páginas, respeitando
+    // break-inside:avoid dos .card. Misturar com 'avoid-all'/'legacy' é o que
+    // causava página em branco no início e seções inteiras (Guia do Gestor, PDI)
+    // sumindo do PDF — bug conhecido do html2pdf.js com elementos altos.
+    pagebreak: { mode: ['css'] }
   }).from(el).save();
 }
 
