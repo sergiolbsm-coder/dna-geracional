@@ -10,10 +10,10 @@ var ABA_TURMAS    = 'Turmas';
 var CAB_RESPOSTAS = [
   'timestamp','nome','email','empresa','turma','fase',
   'gen_boomer','gen_x','gen_y','gen_z','gen_dominante',
-  'sabotador_dominante','ancora_schein','ancora_secundaria',
+  'sabotador_dominante','crenca_limitante','ancora_schein','ancora_secundaria',
   'estilo_lideranca','causa_proposito'
 ];
-var TEXT_COLS_R = [1,2,3,4,5,6,11,12,13,14,15,16];
+var TEXT_COLS_R = [1,2,3,4,5,6,11,12,13,14,15,16,17];
 
 // ── doGet ────────────────────────────────────────────────────────────────────
 function doGet(e) {
@@ -100,7 +100,8 @@ function doSaveResposta(d) {
     d.nome || '', d.email || '', d.empresa || '', d.turma || '', d.fase || '',
     Number(d.gen_boomer)||0, Number(d.gen_x)||0, Number(d.gen_y)||0, Number(d.gen_z)||0,
     d.gen_dominante || '',
-    d.sabotador_dominante || '', d.ancora_schein || '', d.ancora_secundaria || '',
+    d.sabotador_dominante || '', d.crenca_limitante || '',
+    d.ancora_schein || '', d.ancora_secundaria || '',
     d.estilo_lideranca || '', d.causa_proposito || ''
   ];
 
@@ -135,6 +136,7 @@ function testarInsercao() {
     turma:'Geral', fase:'Pré-Treinamento',
     gen_boomer:8, gen_x:50, gen_y:25, gen_z:17, gen_dominante:'Geração X',
     sabotador_dominante:'Cético-Hiper-Realizador',
+    crenca_limitante:'"Só posso confiar no que eu mesmo(a) verificar — se eu não checar, algo vai dar errado."',
     ancora_schein:'Autonomia / Independência', ancora_secundaria:'Dedicação a uma Causa',
     estilo_lideranca:'Orientado a Resultados & Descentralizado',
     causa_proposito:'Eficiência e Resolução de Problemas Complexos'
