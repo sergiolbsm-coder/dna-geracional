@@ -61,8 +61,9 @@ function doPost(e) {
 function doGetTurmas() {
   var ss    = SpreadsheetApp.openById(SHEET_ID);
   var sheet = ss.getSheetByName(ABA_TURMAS);
-  if (!sheet || sheet.getLastRow() === 0) return {status:'ok', turmas:['Geral']};
-  var vals = sheet.getRange(1, 1, sheet.getLastRow(), 1).getValues()
+  if (!sheet || sheet.getLastRow() <= 1) return {status:'ok', turmas:['Geral']};
+  // Começa na linha 2: linha 1 é o cabeçalho ('turma','ativo'), não um valor.
+  var vals = sheet.getRange(2, 1, sheet.getLastRow() - 1, 1).getValues()
                .flat()
                .map(function(v){ return String(v).trim(); })
                .filter(function(v){ return v.length > 0; });

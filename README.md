@@ -9,6 +9,7 @@ Projeto irmão do [assessment-lideranca](https://github.com/sergiolbsm-coder/ass
 | | URL |
 |---|---|
 | 🧬 Diagnóstico | https://sergiolbsm-coder.github.io/dna-geracional/ |
+| 🔧 Admin | https://sergiolbsm-coder.github.io/dna-geracional/admin.html |
 
 ## Como funciona
 
@@ -42,6 +43,14 @@ Backend próprio e independente do `assessment-lideranca` — planilha Google Sh
 5. Autorize as permissões pedidas pelo Google (é a sua própria conta autorizando o script).
 6. Copie a **URL do app da Web** (termina em `/exec`) e cole em `SHEETS_URL` no topo do `<script>` de [`index.html`](index.html).
 7. (Opcional) No editor do Apps Script, rode a função `testarInsercao()` uma vez para confirmar que a aba `Respostas` é criada com o cabeçalho correto.
+8. Cole a mesma URL em `SHEETS_URL` no topo do `<script>` de [`admin.html`](admin.html).
+
+## Admin
+
+[`admin.html`](admin.html) lista todo mundo que respondeu (nome, e-mail, turma, geração dominante, sabotador), com busca, filtro por turma, exportação em CSV e relatório individual completo (com botão de baixar PDF), reaproveitando o mesmo motor de relatório do `index.html`.
+
+- **Acesso**: protegido por uma senha simples definida no primeiro acesso, guardada no `localStorage` do navegador. Não é criptografia forte — apenas evita que qualquer pessoa com o link veja os dados de quem respondeu. Esqueceu a senha? Tem um link "Esqueci a senha" na tela de login que reseta (só nesse navegador).
+- **Onde os dados vêm**: mesmo backend do `index.html` (`SHEETS_URL`) — sempre reflete a planilha em tempo real.
 
 ## Deploy
 
