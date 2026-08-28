@@ -147,9 +147,9 @@ table.matriz tr:last-child td{border-bottom:none}
 
     <div class="card">
       <div class="section-title">Identificação</div>
-      <div class="field"><label>Nome completo *</label><input id="f-nome" type="text" placeholder="Seu nome"></div>
-      <div class="field"><label>E-mail *</label><input id="f-email" type="email" placeholder="seu@email.com"></div>
-      <div class="field"><label>Empresa</label><input id="f-empresa" type="text" placeholder="Nome da empresa"></div>
+      <div class="field"><label>Nome completo *</label><input id="f-nome" type="text" placeholder="Seu nome" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></div>
+      <div class="field"><label>E-mail *</label><input id="f-email" type="email" placeholder="seu@email.com" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></div>
+      <div class="field"><label>Empresa</label><input id="f-empresa" type="text" placeholder="Nome da empresa" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></div>
       <div class="field"><label>Turma *</label>
         <select id="f-turma"><option value="">Carregando...</option></select>
       </div>
@@ -172,6 +172,7 @@ table.matriz tr:last-child td{border-bottom:none}
 
   <!-- STEP 1: QUIZ -->
   <div class="step" id="step-quiz">
+    <p id="quiz-respondente" style="font-size:12px;color:var(--mid);text-align:center;margin-bottom:14px;font-family:'JetBrains Mono',monospace"></p>
     <div class="progress-wrap">
       <div class="progress-label"><span id="prog-txt">Pergunta 1 de 18</span><span id="prog-pct">6%</span></div>
       <div class="progress-track"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
@@ -414,6 +415,19 @@ function startQuiz() {
   const email = document.getElementById('f-email').value.trim();
   const turma = document.getElementById('f-turma').value;
   if (!nome || !email || !turma) { showToast('⚠ Preencha nome, e-mail e turma.'); return; }
+  const respEl = document.getElementById('quiz-respondente');
+  respEl.textContent = '';
+  respEl.append('Respondendo como ');
+  const strong = document.createElement('strong');
+  strong.style.color = 'var(--parch)';
+  strong.textContent = nome;
+  respEl.append(strong, ` (${email}) — `);
+  const link = document.createElement('a');
+  link.href = '#';
+  link.style.color = 'var(--gold)';
+  link.textContent = 'não é você? corrigir';
+  link.onclick = (ev) => { ev.preventDefault(); goTo('step-cadastro'); };
+  respEl.append(link);
   current = 0;
   renderQuestion();
   goTo('step-quiz');
