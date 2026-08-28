@@ -79,6 +79,8 @@ table.resp tr:hover td{background:rgba(255,0,96,.03)}
 .res-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--gold-dk);text-align:center;margin-bottom:2px}
 .res-sub{font-size:11px;color:var(--mid);text-align:center;margin-bottom:22px;font-family:'JetBrains Mono',monospace}
 .card{background:#FFFFFF;border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-bottom:14px;break-inside:avoid;page-break-inside:avoid}
+/* PDF: cada card em sua própria página — ver nota equivalente no index.html */
+#pdf-report .card + .card{break-before:page;page-break-before:always}
 .section-title{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-family:'JetBrains Mono',monospace;margin-bottom:14px;font-weight:700}
 .result-bar-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .result-bar-label{width:130px;font-size:12px;font-weight:600;flex-shrink:0;color:var(--parch)}
