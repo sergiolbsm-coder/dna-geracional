@@ -17,7 +17,7 @@ Projeto irmão do [assessment-lideranca](https://github.com/sergiolbsm-coder/ass
 2. **18 cenários de escolha forçada**, em 3 blocos:
    - **Bloco 1 — Motivação & Carreira**: pontua geração dominante (Baby Boomer / Geração X / Geração Y / Geração Z).
    - **Bloco 2 — Estresse & Sabotadores**: pontua geração + Sabotador dominante (Controlador, Cético-Hiper-Realizador, Pleaser-Inquieto, Inquieto-Ansioso).
-   - **Bloco 3 — Âncoras de Carreira (Schein)**: pontua Âncora dominante (Autonomia/Independência, Competência Gerencial Geral, Segurança/Estabilidade, Dedicação a uma Causa).
+   - **Bloco 3 — Âncoras de Carreira (Schein, versão compacta)**: pontua Âncora dominante entre 6 das 8 âncoras de Schein (Autonomia/Independência, Competência para Gerência Geral, Segurança/Estabilidade, Serviço/Dedicação a uma Causa, Competência Técnica/Funcional, Criatividade Empreendedora). Versão enxuta por design — o teste completo de Schein (8 âncoras, 40 afirmações, escala 1-6) fica num instrumento à parte, para não desequilibrar o foco geracional deste diagnóstico.
 3. **Relatório instantâneo**, calculado no navegador (sem depender de IA para pontuar):
    - Dashboard de influência geracional (%)
    - Matriz psicométrica integrada (Âncora × Sabotador × Estilo de Liderança × Causa/Propósito)

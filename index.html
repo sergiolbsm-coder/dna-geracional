@@ -139,7 +139,7 @@ table.matriz tr:last-child td{border-bottom:none}
     <h1>DNA <span>Geracional</span> e Inteligência Comportamental</h1>
     <div class="theories-row">
       <span class="theory-pill">🧬 4 Gerações</span>
-      <span class="theory-pill">🛡 Sabotadores (PQ)</span>
+      <span class="theory-pill">🛡 Sabotadores</span>
       <span class="theory-pill">⚓ Âncoras de Carreira</span>
       <span class="theory-pill">🎯 Estilo de Liderança</span>
     </div>
@@ -248,11 +248,28 @@ const SABOTADOR_INFO = {
 };
 
 const ANCORA_INFO = {
-  AUTONOMIA: { nome:'Autonomia / Independência', impacto:'Rejeita microgerenciamento; produz melhor quando recebe o objetivo final e liberdade total de meios.', causa:'Eficiência e Resolução de Problemas Complexos — energiza-se ao otimizar processos ineficientes e destravar gargalos estratégicos.', delegar:'Forneça metas claras de saída (outcomes), prazos definidos e evite interferir no processo contínuo de execução.', alavancagem:'Utilizar sua autonomia natural para liderar projetos de transformação/inovação que precisem de um(a) dono(a) único(a) com liberdade de execução.' },
-  GERENCIAL: { nome:'Competência Gerencial Geral', impacto:'Busca ampliar escopo de gestão de pessoas, orçamento e unidades de negócio; motiva-se por escalar resultados através de times.', causa:'Construção de Times e Estruturas de Alto Desempenho — energiza-se ao desenvolver pessoas e escalar operações.', delegar:'Delegue com escopo de gestão real — orçamento, pessoas ou métricas de negócio — e não apenas tarefas operacionais.', alavancagem:'Buscar deliberadamente posições com escopo de gestão de pessoas e orçamento maiores — é onde sua energia rende mais.' },
-  SEGURANCA: { nome:'Segurança / Estabilidade', impacto:'Prioriza previsibilidade e continuidade; entrega consistência, mas pode hesitar diante de mudanças bruscas de rota.', causa:'Solidez Institucional e Legado — energiza-se ao construir bases duradouras e processos confiáveis.', delegar:'Explique o contexto e o "porquê" das mudanças com antecedência; formalize acordos e evite ambiguidade sobre continuidade.', alavancagem:'Assumir a linha de frente em processos de continuidade, governança e transição de conhecimento — sua solidez vira vantagem competitiva ali.' },
-  CAUSA: { nome:'Dedicação a uma Causa', impacto:'Precisa de alinhamento de valores para se engajar de verdade; desliga-se emocionalmente de projetos sem propósito claro.', causa:'Impacto Social e Coerência de Valores — energiza-se quando o trabalho serve a algo maior que o resultado financeiro.', delegar:'Conecte a entrega ao propósito maior antes de detalhar o "como" — sem esse alinhamento, o engajamento cai rapidamente.', alavancagem:'Liderar iniciativas de impacto social/ESG ou projetos com forte componente de propósito — é onde seu engajamento é mais alto e mais sustentável.' }
+  TF: { nome:'Competência Técnica/Funcional', cor:'#261062', driver:'aprofundamento técnico contínuo', impacto:'Quer seguir aprofundando a expertise na própria área; evita posições gerenciais genéricas que o(a) afastem da especialidade.', causa:'Domínio Técnico e Excelência na Especialidade — energiza-se ao resolver problemas difíceis dentro da própria área de expertise.', delegar:'Ofereça desafios técnicos de ponta na área de especialização; evite forçar uma trilha puramente gerencial.', alavancagem:'Aprofundar-se ainda mais na especialidade técnica e assumir o papel de referência/mentor(a) técnico(a) sênior, sem precisar virar gestor(a) generalista.' },
+  GG: { nome:'Competência para Gerência Geral', cor:'#391694', driver:'escala de gestão de pessoas e orçamento', impacto:'Busca ampliar escopo de gestão de pessoas, orçamento e unidades de negócio; motiva-se por escalar resultados através de times.', causa:'Construção de Times e Estruturas de Alto Desempenho — energiza-se ao desenvolver pessoas e escalar operações.', delegar:'Delegue com escopo de gestão real — orçamento, pessoas ou métricas de negócio — e não apenas tarefas operacionais.', alavancagem:'Buscar deliberadamente posições com escopo de gestão de pessoas e orçamento maiores — é onde sua energia rende mais.' },
+  AI: { nome:'Autonomia / Independência', cor:'#FF0060', driver:'autonomia de execução', impacto:'Rejeita microgerenciamento; produz melhor quando recebe o objetivo final e liberdade total de meios.', causa:'Eficiência e Resolução de Problemas Complexos — energiza-se ao otimizar processos ineficientes e destravar gargalos estratégicos.', delegar:'Forneça metas claras de saída (outcomes), prazos definidos e evite interferir no processo contínuo de execução.', alavancagem:'Utilizar sua autonomia natural para liderar projetos de transformação/inovação que precisem de um(a) dono(a) único(a) com liberdade de execução.' },
+  SE: { nome:'Segurança / Estabilidade', cor:'#00D0C9', driver:'solidez e continuidade institucional', impacto:'Prioriza previsibilidade e continuidade; entrega consistência, mas pode hesitar diante de mudanças bruscas de rota.', causa:'Solidez Institucional e Legado — energiza-se ao construir bases duradouras e processos confiáveis.', delegar:'Explique o contexto e o "porquê" das mudanças com antecedência; formalize acordos e evite ambiguidade sobre continuidade.', alavancagem:'Assumir a linha de frente em processos de continuidade, governança e transição de conhecimento — sua solidez vira vantagem competitiva ali.' },
+  CE: { nome:'Criatividade Empreendedora', cor:'#E8708A', driver:'criar e assumir riscos por conta própria', impacto:'Quer criar algo que seja fruto do próprio esforço; pode se frustrar em estruturas que sufoquem iniciativa ou risco.', causa:'Criação e Construção de Novos Empreendimentos — energiza-se ao transformar uma ideia própria em algo concreto e bem-sucedido.', delegar:'Dê espaço para propor e liderar iniciativas do zero, com autonomia para assumir riscos calculados — não sufoque com processo excessivo.', alavancagem:'Liderar a criação de novas frentes de negócio, produtos ou iniciativas dentro (ou fora) da organização — onde possa construir algo com a própria marca.' },
+  SD: { nome:'Serviço / Dedicação a uma Causa', cor:'#4D1DBF', driver:'propósito e impacto social', impacto:'Precisa de alinhamento de valores para se engajar de verdade; desliga-se emocionalmente de projetos sem propósito claro.', causa:'Impacto Social e Coerência de Valores — energiza-se quando o trabalho serve a algo maior que o resultado financeiro.', delegar:'Conecte a entrega ao propósito maior antes de detalhar o "como" — sem esse alinhamento, o engajamento cai rapidamente.', alavancagem:'Liderar iniciativas de impacto social/ESG ou projetos com forte componente de propósito — é onde seu engajamento é mais alto e mais sustentável.' }
 };
+
+// Alavancagem combinada: puxa a 1ª âncora como base e "tempera" com a 2ª/3ª
+// (em vez de só a dominante) — evita que pessoas com âncora primária igual
+// mas perfil diferente nas outras recebam o mesmo texto.
+function gerarAlavancagem(ancOrd) {
+  const ativos = ancOrd.filter(([,v]) => v > 0);
+  if (!ativos.length) return '—';
+  const [pKey] = ativos[0];
+  let texto = ANCORA_INFO[pKey].alavancagem;
+  const extras = ativos.slice(1, 3).map(([k]) => ANCORA_INFO[k].driver);
+  if (extras.length) {
+    texto += ` Sua pontuação também mostra afinidade com ${extras.join(' e ')} — vale considerar isso ao escolher os próximos desafios.`;
+  }
+  return texto;
+}
 
 const ESTILO_LIDERANCA = {
   BOOMER: 'Hierárquico & Estruturado — lidera pela experiência e pela cadeia de comando, com forte senso de dever e mentoria formal.',
@@ -282,7 +299,7 @@ const NEUTRALIZACAO = {
   INQUIETO:    'Antes de mudar de rota, aplicar uma pausa estruturada de 24h para avaliar se a lentidão percebida é real ou só desconforto com a espera.'
 };
 
-// ─── QUESTÕES (18 cenários de escolha forçada · 3 blocos) ─────────────────────
+// ─── QUESTÕES (12 cenários de escolha forçada · Blocos 1 e 2) ─────────────────
 const QUESTOES = [
   // BLOCO 1 — Motores de Motivação & Visão de Carreira (pontua Geração)
   { bloco:1, cenario:'Ao avaliar uma proposta profissional, o fator de maior peso decisivo para você é:', opcoes:[
@@ -348,37 +365,51 @@ const QUESTOES = [
     {letra:'C', texto:'"Será que decepcionei o time ou a liderança com isso?"', ger:'GENY', sab:'PLEASER'},
     {letra:'D', texto:'"Preciso resolver isso rápido antes que vire uma bola de neve."', ger:'GENZ', sab:'INQUIETO'} ]},
 
-  // BLOCO 3 — Âncoras de Carreira · Schein (pontua Âncora)
+  // BLOCO 3 — Âncoras de Carreira · versão compacta, 6 das 8 âncoras de Schein
+  // (Autonomia, Gerencial, Segurança, Causa, Técnica/Funcional, Empreendedora).
+  // Versão completa (8 âncoras, 40 itens, escala 1-6) vive num instrumento à parte.
   { bloco:3, cenario:'O que você jamais aceitaria negociar em um contrato de trabalho?', opcoes:[
-    {letra:'A', texto:'Autonomia total sobre como, onde e quando executo minhas entregas.', ancora:'AUTONOMIA'},
-    {letra:'B', texto:'A oportunidade de liderar pessoas e gerenciar unidades de negócio estratégicas.', ancora:'GERENCIAL'},
-    {letra:'C', texto:'A garantia de previsibilidade financeira e estabilidade no cargo.', ancora:'SEGURANCA'},
-    {letra:'D', texto:'O alinhamento inegociável do projeto com meus valores pessoais e de impacto social.', ancora:'CAUSA'} ]},
+    {letra:'A', texto:'Autonomia total sobre como, onde e quando executo minhas entregas.', ancora:'AI'},
+    {letra:'B', texto:'A oportunidade de liderar pessoas e gerenciar unidades de negócio estratégicas.', ancora:'GG'},
+    {letra:'C', texto:'A garantia de previsibilidade financeira e estabilidade no cargo.', ancora:'SE'},
+    {letra:'D', texto:'O alinhamento inegociável do projeto com meus valores pessoais e de impacto social.', ancora:'SD'},
+    {letra:'E', texto:'A possibilidade de seguir aprofundando minha especialidade técnica, sem virar gestor(a) generalista.', ancora:'TF'},
+    {letra:'F', texto:'A liberdade de criar e tocar iniciativas que sejam meu próprio empreendimento, dentro ou fora da empresa.', ancora:'CE'} ]},
   { bloco:3, cenario:'Se te oferecessem uma promoção que muda radicalmente sua rotina, o fator decisivo seria:', opcoes:[
-    {letra:'A', texto:'Se a nova posição preserva minha liberdade de decidir como trabalhar.', ancora:'AUTONOMIA'},
-    {letra:'B', texto:'Se a posição amplia meu escopo de gestão de pessoas e resultados.', ancora:'GERENCIAL'},
-    {letra:'C', texto:'Se a posição é mais estável e segura do que a atual, não menos.', ancora:'SEGURANCA'},
-    {letra:'D', texto:'Se a posição me aproxima ainda mais de causas e valores que defendo.', ancora:'CAUSA'} ]},
+    {letra:'A', texto:'Se a nova posição preserva minha liberdade de decidir como trabalhar.', ancora:'AI'},
+    {letra:'B', texto:'Se a posição amplia meu escopo de gestão de pessoas e resultados.', ancora:'GG'},
+    {letra:'C', texto:'Se a posição é mais estável e segura do que a atual, não menos.', ancora:'SE'},
+    {letra:'D', texto:'Se a posição me aproxima ainda mais de causas e valores que defendo.', ancora:'SD'},
+    {letra:'E', texto:'Se a posição me afasta ou não da minha área técnica de especialização.', ancora:'TF'},
+    {letra:'F', texto:'Se a posição me dá espaço para criar algo novo por conta própria.', ancora:'CE'} ]},
   { bloco:3, cenario:'Diante de duas ofertas de emprego com salários parecidos, você escolheria pela:', opcoes:[
-    {letra:'A', texto:'Empresa que dá mais liberdade de horário e formato de trabalho.', ancora:'AUTONOMIA'},
-    {letra:'B', texto:'Empresa que oferece um caminho claro para posições de liderança.', ancora:'GERENCIAL'},
-    {letra:'C', texto:'Empresa mais sólida e com histórico comprovado de estabilidade no mercado.', ancora:'SEGURANCA'},
-    {letra:'D', texto:'Empresa cuja missão está mais alinhada com o que você acredita.', ancora:'CAUSA'} ]},
+    {letra:'A', texto:'Empresa que dá mais liberdade de horário e formato de trabalho.', ancora:'AI'},
+    {letra:'B', texto:'Empresa que oferece um caminho claro para posições de liderança.', ancora:'GG'},
+    {letra:'C', texto:'Empresa mais sólida e com histórico comprovado de estabilidade no mercado.', ancora:'SE'},
+    {letra:'D', texto:'Empresa cuja missão está mais alinhada com o que você acredita.', ancora:'SD'},
+    {letra:'E', texto:'Empresa que investe mais no meu desenvolvimento técnico de especialista.', ancora:'TF'},
+    {letra:'F', texto:'Empresa que me deixa mais livre para propor e criar iniciativas próprias.', ancora:'CE'} ]},
   { bloco:3, cenario:'O que mais te desmotivaria a continuar em um emprego, mesmo bem pago?', opcoes:[
-    {letra:'A', texto:'Ser microgerenciado(a) e não ter liberdade sobre o método de trabalho.', ancora:'AUTONOMIA'},
-    {letra:'B', texto:'Não ter perspectiva de crescer para posições de gestão.', ancora:'GERENCIAL'},
-    {letra:'C', texto:'Sentir instabilidade constante quanto ao futuro do meu cargo.', ancora:'SEGURANCA'},
-    {letra:'D', texto:'Perceber que a empresa age de forma contrária aos valores que promete defender.', ancora:'CAUSA'} ]},
+    {letra:'A', texto:'Ser microgerenciado(a) e não ter liberdade sobre o método de trabalho.', ancora:'AI'},
+    {letra:'B', texto:'Não ter perspectiva de crescer para posições de gestão.', ancora:'GG'},
+    {letra:'C', texto:'Sentir instabilidade constante quanto ao futuro do meu cargo.', ancora:'SE'},
+    {letra:'D', texto:'Perceber que a empresa age de forma contrária aos valores que promete defender.', ancora:'SD'},
+    {letra:'E', texto:'Ser afastado(a) da minha área técnica de especialização.', ancora:'TF'},
+    {letra:'F', texto:'Não ter espaço para criar ou propor nada novo por conta própria.', ancora:'CE'} ]},
   { bloco:3, cenario:'Ao imaginar seu auge profissional daqui a 10 anos, você se vê como:', opcoes:[
-    {letra:'A', texto:'Um(a) especialista independente, respeitado(a) pela autonomia com que atua.', ancora:'AUTONOMIA'},
-    {letra:'B', texto:'Um(a) executivo(a) à frente de uma grande equipe ou unidade de negócio.', ancora:'GERENCIAL'},
-    {letra:'C', texto:'Alguém com uma posição sólida, reconhecida e segura dentro de uma instituição.', ancora:'SEGURANCA'},
-    {letra:'D', texto:'Alguém referência por liderar ou apoiar uma causa relevante para a sociedade.', ancora:'CAUSA'} ]},
+    {letra:'A', texto:'Um(a) especialista independente, respeitado(a) pela autonomia com que atua.', ancora:'AI'},
+    {letra:'B', texto:'Um(a) executivo(a) à frente de uma grande equipe ou unidade de negócio.', ancora:'GG'},
+    {letra:'C', texto:'Alguém com uma posição sólida, reconhecida e segura dentro de uma instituição.', ancora:'SE'},
+    {letra:'D', texto:'Alguém referência por liderar ou apoiar uma causa relevante para a sociedade.', ancora:'SD'},
+    {letra:'E', texto:'Uma autoridade técnica reconhecida na minha área de especialização.', ancora:'TF'},
+    {letra:'F', texto:'Fundador(a)/criador(a) de algo que comecei sozinho(a), do zero.', ancora:'CE'} ]},
   { bloco:3, cenario:'Se pudesse redesenhar seu cargo atual do zero, a primeira mudança seria:', opcoes:[
-    {letra:'A', texto:'Ter mais liberdade para decidir prioridades e forma de execução.', ancora:'AUTONOMIA'},
-    {letra:'B', texto:'Ter mais pessoas e mais orçamento sob minha responsabilidade direta.', ancora:'GERENCIAL'},
-    {letra:'C', texto:'Ter mais clareza e garantias sobre a continuidade do meu papel.', ancora:'SEGURANCA'},
-    {letra:'D', texto:'Ter mais tempo/mandato dedicado a projetos de impacto e propósito.', ancora:'CAUSA'} ]}
+    {letra:'A', texto:'Ter mais liberdade para decidir prioridades e forma de execução.', ancora:'AI'},
+    {letra:'B', texto:'Ter mais pessoas e mais orçamento sob minha responsabilidade direta.', ancora:'GG'},
+    {letra:'C', texto:'Ter mais clareza e garantias sobre a continuidade do meu papel.', ancora:'SE'},
+    {letra:'D', texto:'Ter mais tempo/mandato dedicado a projetos de impacto e propósito.', ancora:'SD'},
+    {letra:'E', texto:'Ter mais tempo dedicado a aprofundar minha especialidade técnica.', ancora:'TF'},
+    {letra:'F', texto:'Ter mais liberdade para criar e testar minhas próprias iniciativas.', ancora:'CE'} ]}
 ];
 
 // ─── ESTADO ───────────────────────────────────────────────────────────────────
@@ -496,7 +527,7 @@ function goBack() {
 function calcular() {
   const ger = { BOOMER:0, GENX:0, GENY:0, GENZ:0 };
   const sab = { CETICO:0, CONTROLADOR:0, PLEASER:0, INQUIETO:0 };
-  const anc = { AUTONOMIA:0, GERENCIAL:0, SEGURANCA:0, CAUSA:0 };
+  const anc = { AI:0, GG:0, SE:0, SD:0, TF:0, CE:0 };
 
   QUESTOES.forEach((q, i) => {
     const letra = answers[i];
@@ -517,11 +548,15 @@ function calcular() {
   const sabMax = Math.max(...Object.values(sab));
   const sabDominantes = Object.entries(sab).filter(([,v])=>v===sabMax).map(([k])=>k);
 
+  const totalAnc = Object.values(anc).reduce((a,v)=>a+v,0) || 1;
+  const ancPct = {};
+  Object.entries(anc).forEach(([k,v]) => ancPct[k] = Math.round(v/totalAnc*100));
+
   const ancOrd = Object.entries(anc).sort((a,b)=>b[1]-a[1]);
   const ancDominante = ancOrd[0][0];
   const ancSecundaria = ancOrd[1][1] > 0 ? ancOrd[1][0] : null;
 
-  return { ger, genPct, genOrd, genDominante, sab, sabDominantes, anc, ancOrd, ancDominante, ancSecundaria };
+  return { ger, genPct, genOrd, genDominante, sab, sabDominantes, anc, ancPct, ancOrd, ancDominante, ancSecundaria };
 }
 
 function calcularEMostrar() {
